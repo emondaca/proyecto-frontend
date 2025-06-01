@@ -1,0 +1,10 @@
+#home {
+    background: url("../img/home.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+}
+
+#logo {
+    height: 200px;
+}

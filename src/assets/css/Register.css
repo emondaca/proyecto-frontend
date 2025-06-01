@@ -1,0 +1,15 @@
+#register {
+    background: url("../img/home.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+}
+
+#formulario {
+    background-color: cornflowerblue;
+    
+}
+
+#logo {
+    height: 200px;
+}
