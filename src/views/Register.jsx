@@ -58,7 +58,8 @@ const Register = () => {
 
   return (
     <Stack id = 'register' className='mx-auto'>
-    <Container id = "formulario" className='mx-auto my-auto'>
+    <h1 className='mx-auto pb-0 mb-0 mt-5' >Registrate</h1>
+    <Container id = "formulario" className='mx-auto my-auto mt-4'>
       <Form>
         <Form.Group className="mb-3" controlId="formGridNombres">
           <Form.Label>Nombres</Form.Label>
