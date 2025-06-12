@@ -6,10 +6,11 @@ import { TokenContext } from '../context/Context'
 import { useContext } from 'react';
 
 
-
 const NavBar = () => {
     const { tokenPresente, setTokenPresente } = useContext(TokenContext)
     const setActiveClass = ({isActive}) => (isActive ? "active-nav" : undefined)
+
+    setTokenPresente((localStorage.getItem("token") != 'null') ? true : false)
 
     const getProfile = () => {
 

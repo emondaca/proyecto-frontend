@@ -1,37 +1,20 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { TokenContext } from '../context/Context'
+import { ENDPOINT } from '../config/constants.js'
 import { useContext } from 'react'
-/*import { TokenContext } from '../context/TokenContext';*/
 import { UserContext } from '../context/Context'
 
 const Login = () => {
   
- /* const { setEmail, setPassword } = useContext(UserContext) */
-  
-  /* Registro 
-      const registerMe = async (e) => {
-          e.preventDefault();
-          const response = await fetch("http://localhost:5000/api/auth/register", {
-              method: "POST",
-              headers: {
-              "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-              email,
-              password,
-              }),
-          });
-          const data = await response.json();
-          alert(data?.error || "Datos Ingresados Correctamente");
-          localStorage.setItem("token", data.token);
-      }; */
-  
+  const { email, setEmail, password, setPassword } = useContext(UserContext)
+  const { setTokenPresente } = useContext(TokenContext) 
   
   /* Login */
   
       const getToken = async (e) => {
-      /*    e.preventDefault()
-          const response = await fetch("http://localhost:5000/api/auth/login", {
+          e.preventDefault()
+          const response = await fetch(ENDPOINT.login, {
               method: "POST",
               headers: {
               "Content-Type": "application/json",
@@ -43,9 +26,9 @@ const Login = () => {
               }),
           })
           const data = await response.json()
-          alert(data?.error || "Authentication successful!");
+          alert(data?.error || data.message);
           localStorage.setItem("token", data.token);
-          setTokenPresente(((localStorage.getItem("token") != 'null') && (localStorage.getItem("token") != 'undefined')) ? true : false)*/
+          setTokenPresente((localStorage.getItem("token") != 'null') ? true : false)
       }
   
 
