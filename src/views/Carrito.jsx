@@ -26,7 +26,7 @@ const Carrito = () => {
   const handlePagar = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
-    if (token) {
+    /*if (token) {
       const response = await fetch("http://localhost:3000/api/checkouts", {
           method: "POST",
           headers: {
@@ -43,7 +43,7 @@ const Carrito = () => {
       } else {
         alert("Ha ocurrido un error, intente de nuevo en unos minutos");
       }
-    };
+    };*/
   };
 
     return (
