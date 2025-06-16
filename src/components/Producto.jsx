@@ -30,7 +30,7 @@ const Producto = (props)=> {
     var indexOfProducto = productosCarro.map(producto => producto.id).indexOf(props.id);
 
    if (indexOfProducto  >= 0) {
-      productosCarro[indexOfProducto.count++]
+      productosCarro[indexOfProducto].count++
     }
     else {
       productosCarro.push({id: props.id, img: props.imagen, name: props.nombre, price: props.precio, count: 1});
@@ -57,7 +57,7 @@ return (
           <Container fluid = "true">
             <Row className = "mx-4">
               <Col>
-                <Card.Link><Button type= "checkbox" variant = "outline-secondary" onClick={() => navigate(`/pizza/${props.id}`)}>Ver Más 👀</Button></Card.Link>
+                <Card.Link><Button type= "checkbox" variant = "outline-secondary" onClick={() => navigate(`/tienda/${props.id}`)}>Ver Más 👀</Button></Card.Link>
               </Col>
               <Col className = "text-end">
                 <Card.Link><Button variant="dark" onClick={() => handleAgregar()}>Añadir 🛒</Button></Card.Link>

@@ -2,12 +2,18 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container'
 import { Nav, Navbar, Button } from 'react-bootstrap';
-import { TokenContext } from '../context/Context'
+import { CarritoContext, TokenContext } from '../context/Context'
 import { useContext } from 'react';
 
 
 const NavBar = () => {
-    const { tokenPresente, setTokenPresente } = useContext(TokenContext)
+    const { tokenPresente, setTokenPresente } = useContext(TokenContext);
+    const { productosCarro } = useContext(CarritoContext);
+    var total_count = 0;
+    {productosCarro.map((props) => (
+          total_count += props.count
+        ))
+    }
     const setActiveClass = ({isActive}) => (isActive ? "active-nav" : undefined)
 
     setTokenPresente((localStorage.getItem("token") != 'null') ? true : false)
@@ -52,7 +58,9 @@ const NavBar = () => {
               </Button>
             </NavLink>
             <NavLink className= {setActiveClass} to= "/carrito">
-              <Button type= "checkbox" variant = "primary" className="mx-2">Carrito</Button>
+              <Button type= "checkbox" variant = "primary" className="mx-2">
+              Carrito 🛒 {(total_count > 0) ? total_count : ''}
+              </Button>
             </NavLink>
           </Nav>
         </Container>

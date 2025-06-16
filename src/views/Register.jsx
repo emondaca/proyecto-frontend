@@ -17,7 +17,7 @@ const initialForm = {
   nombres: '',
   apellido_paterno: '',
   apellido_materno: '',
-  rut: '9807',
+  rut: '',
   fecha_nacimiento: '01/01/9999'
 }
 
@@ -135,6 +135,7 @@ const Register = () => {
               type="date" 
               placeholder="Fecha de Nacimiento"
               name="fecha_nacimiento" />
+              onChange={handleClient}
           </Form.Group>
         </Row>
 

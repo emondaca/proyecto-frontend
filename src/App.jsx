@@ -8,7 +8,7 @@ import Tienda from './views/Tienda'
 import Carrito from './views/carrito'
 import Perfil from './views/Perfil'
 import CarritoProvider from './context/CarritoProvider'
-import UserProvider from './context/UserProvider'
+import ClientProvider from './context/ClientProvider'
 import TokenProvider from './context/TokenProvider'
 import NavBar from './components/NavBar'
 import Blog from './views/Blog'
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      <UserProvider><TokenProvider><CarritoProvider>
+      <ClientProvider><TokenProvider><CarritoProvider>
         <NavBar></NavBar>
         <Routes>
           <Route
@@ -49,7 +49,7 @@ function App() {
             element= { <Blog></Blog> }
           />
         </Routes>
-      </CarritoProvider></TokenProvider></UserProvider>
+      </CarritoProvider></TokenProvider></ClientProvider>
     </>
   )
 }

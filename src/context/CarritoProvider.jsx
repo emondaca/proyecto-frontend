@@ -3,7 +3,8 @@ import { CarritoContext } from './Context'
 
 // eslint-disable-next-line react/prop-types
 const CarritoProvider = ({ children }) => {
-    const [productosCarro, setProductosCarro] = useState([])
+    const [productosCarro, setProductosCarro] = useState([]);
+    /*const [productsCount, setProductsCount] = useState();*/
     return (
         <CarritoContext.Provider value={{productosCarro, setProductosCarro}}>
             { children }

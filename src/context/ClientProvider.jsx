@@ -1,19 +1,19 @@
 import { useState  } from "react";
 
-import { UserContext } from "./Context"
+import { ClientContext } from "./Context"
 
 // eslint-disable-next-line react/prop-types
-const UserProvider = ({ children }) => {
+const ClientProvider = ({ children }) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
     const [user, setUser] = useState("")
 
     return (
-        <UserContext.Provider value={{email, setEmail, password, setPassword,  user, setUser}}>
+        <ClientContext.Provider value={{email, setEmail, password, setPassword,  user, setUser}}>
             {children}
-        </UserContext.Provider>
+        </ClientContext.Provider>
     )
 }
 
-export default UserProvider
+export default ClientProvider

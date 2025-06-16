@@ -3,11 +3,11 @@ import Form from 'react-bootstrap/Form';
 import { TokenContext } from '../context/Context'
 import { ENDPOINT } from '../config/constants.js'
 import { useContext } from 'react'
-import { UserContext } from '../context/Context'
+import { ClientContext } from '../context/Context'
 
 const Login = () => {
   
-  const { email, setEmail, password, setPassword } = useContext(UserContext)
+  const { email, setEmail, password, setPassword } = useContext(ClientContext)
   const { setTokenPresente } = useContext(TokenContext) 
   
   /* Login */
