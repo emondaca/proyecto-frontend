@@ -7,6 +7,8 @@ export default defineConfig({
   server: {
     port: 5000,
    host: '0.0.0.0',
+  },
+  preview: {
    allowedHosts: "proyecto-frontend-iyts.onrender.com"
   },
 })
