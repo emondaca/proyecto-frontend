@@ -1,14 +1,16 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { TokenContext } from '../context/Context'
+import { CarritoContext, TokenContext } from '../context/Context'
 import { ENDPOINT } from '../config/constants.js'
 import { useContext } from 'react'
 import { ClientContext } from '../context/Context'
+import axios from 'axios';
 
 const Login = () => {
   
   const { email, setEmail, password, setPassword } = useContext(ClientContext)
   const { setTokenPresente } = useContext(TokenContext) 
+  const { setProductosCarro } = useContext(CarritoContext)
   
   /* Login */
   
@@ -28,9 +30,19 @@ const Login = () => {
           const data = await response.json()
           alert(data?.error || data.message);
           localStorage.setItem("token", data.token);
-          setTokenPresente((localStorage.getItem("token") != 'null') ? true : false)
+          const token = localStorage.getItem("token")
+          setTokenPresente((token != 'null') ? true : false)
+
+          if (token) {
+            try {
+            const resp = await axios.get(ENDPOINT.carrito, {headers: {Authorization: `Bearer ${token}`} })
+            const data = resp.data
+            setProductosCarro(data)
+            } catch (error) {
+              console.log('Error:', error)
+            }
+          }
       }
-  
 
   return (
     <Form className = "mb-5">
