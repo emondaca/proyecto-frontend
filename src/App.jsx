@@ -12,6 +12,7 @@ import ClientProvider from './context/ClientProvider'
 import TokenProvider from './context/TokenProvider'
 import NavBar from './components/NavBar'
 import Blog from './views/Blog'
+import Contacto from './views/Contacto'
 
 function App() {
 
@@ -47,6 +48,10 @@ function App() {
            <Route
             path= "/blog"
             element= { <Blog></Blog> }
+          />
+          <Route
+            path= "/contacto"
+            element= { <Contacto></Contacto>}
           />
         </Routes>
       </CarritoProvider></TokenProvider></ClientProvider>
