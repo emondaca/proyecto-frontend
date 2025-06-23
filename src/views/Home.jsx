@@ -8,10 +8,10 @@ const Home = () => {
     return (
         <>
             
-            <Container id = "home">
+            <Container id = "home" ClassName= "by-0 ">
                 <Row>
                     <Col>
-                        <Image id="logo" src="/img/logo.jpg" fluid/>
+                        {/* <Image id="logo" src="/img/logo.jpg" fluid/> */}
                    </Col>
                 </Row>
                 

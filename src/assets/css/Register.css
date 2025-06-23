@@ -4,12 +4,17 @@
     background-size: cover;
     height: 800px;
 }
-
+#register_form {
+    background-color:rgb(145, 209, 145);
+}
 #formulario {
-    background-color: cornflowerblue;
+    background-color:burlywood;
     
 }
 
+#form_title {
+    text-align: center;
+}
 #logo {
     height: 200px;
 }

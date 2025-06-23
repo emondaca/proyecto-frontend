@@ -19,7 +19,7 @@ const NavBar = () => {
     setTokenPresente((localStorage.getItem("token") != 'null') ? true : false)
 
     const getProfile = () => {
-
+        
     }
 
     const handleLogout = () => {
@@ -28,9 +28,9 @@ const NavBar = () => {
     }
   return (
     <>
-      <Navbar bg="light" data-bs-theme="light">
-        <Container>
-          <Navbar.Brand>MOV Creaciones</Navbar.Brand>
+      <Navbar  bg="light" data-bs-theme="light">
+        <Container id= 'navbar' ClassName= "py-0">
+          <Navbar.Brand id='navbar_brand'>MOV Creaciones</Navbar.Brand>
           <Nav className="me-auto">
             <NavLink className= {setActiveClass} to= "/">
               <Button type= "checkbox" variant = "secondary" className="mx-2">Home</Button>
@@ -52,7 +52,7 @@ const NavBar = () => {
                 {tokenPresente ? '🔓 Logout' : '🔐Login'}
               </Button>
             </NavLink>
-            <NavLink className= {setActiveClass} to= { tokenPresente ? "/profile" : "/register" }>
+            <NavLink className= {setActiveClass} to= { tokenPresente ? "/perfil" : "/register" }>
               <Button type= "checkbox" variant = "primary" className="mx-2" onClick={ getProfile} >
                 {tokenPresente ? '🔓 Perfil' : '🔐Registrate'}
               </Button>

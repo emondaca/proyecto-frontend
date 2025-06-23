@@ -3,8 +3,21 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 800px;
+
+
 }
+
 
 #logo {
     height: 200px;
+}
+
+#navbar {
+    background-color:rgb(216, 211, 205)
+    
+}
+
+#navbar_brand {
+    font-family:cursive
+    
 }

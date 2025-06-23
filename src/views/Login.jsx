@@ -10,39 +10,56 @@ const Login = () => {
   
   const { email, setEmail, password, setPassword } = useContext(ClientContext)
   const { setTokenPresente } = useContext(TokenContext) 
-  const { setProductosCarro } = useContext(CarritoContext)
+  const { productosCarro, setProductosCarro } = useContext(CarritoContext)
   
   /* Login */
   
-      const getToken = async (e) => {
-          e.preventDefault()
-          const response = await fetch(ENDPOINT.login, {
-              method: "POST",
-              headers: {
-              "Content-Type": "application/json",
-              },
+  const getToken = async (e) => {
+    e.preventDefault()
+    const response = await fetch(ENDPOINT.login, {
+      method: "POST",
+      headers: {
+      "Content-Type": "application/json",
+      },
 
-              body: JSON.stringify({
-              email,
-              password,
-              }),
-          })
-          const data = await response.json()
-          alert(data?.error || data.message);
-          localStorage.setItem("token", data.token);
-          const token = localStorage.getItem("token")
-          setTokenPresente((token != 'null') ? true : false)
+      body: JSON.stringify({
+      email,
+      password,
+      }),
+    })
+    const data = await response.json()
+    alert(data?.error || data.message);
+    if (data.token) {
+      localStorage.setItem("token", data.token);
+    } else {
+      localStorage.setItem("token", 'null')
+    }
 
-          if (token) {
-            try {
-            const resp = await axios.get(ENDPOINT.carrito, {headers: {Authorization: `Bearer ${token}`} })
-            const data = resp.data
-            setProductosCarro(data)
-            } catch (error) {
-              console.log('Error:', error)
+    const token = localStorage.getItem("token")
+    console.log(token)
+    setTokenPresente((token != 'null') ? true : false)
+    if (token != 'null') {
+      try {
+        const resp = await axios.get(ENDPOINT.carrito, { headers: {Authorization: `Bearer ${token}`} })
+        const data = resp.data
+        if (data) {
+    
+          {data.forEach(e => {
+            const indice = productosCarro.findIndex(producto => producto.id === e.id)
+            if (indice >= 0) {
+              productosCarro[indice].count += e.count
+            } else {
+                productosCarro.push({id: e.id, img: e.img, name: e.name, price: e.price, count: e.count})
             }
-          }
+          })}
+          setProductosCarro([...productosCarro])
+          alert('El carrito de compras se actualizó con los productos guardados en su visita anterior')
+        }
+      } catch (error) {
+        console.log('Error:', error)
       }
+    }
+  }
 
   return (
     <Form className = "mb-5">
